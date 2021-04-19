@@ -24,6 +24,8 @@ DJANGO_SETTINGS_MODULE = config('DJANGO_SETTINGS_MODULE')
 # Application definition
 
 INSTALLED_APPS = [
+    'people',
+    'voting',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
