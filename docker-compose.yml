@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_DBNAME=${POSTGRES_DBNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # store data in host
+  web:
+    build: .
+    # name the built image.
+    # I use this name so I can upload the image to docker hub under same name
+    image: fnb_image
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000" # map container port
+    depends_on:
+      - db
+volumes:
+  postgres_data:
