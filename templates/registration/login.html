@@ -1,0 +1,34 @@
+{% extends "fnb_base.html" %}
+{% block title %}Login{% endblock title %}
+
+{% block body %}
+
+<div class="login-form text-center">
+
+    {% if form.errors %}
+        <p>Wrong username and/or password</p>
+    {% endif %}
+
+    <h2>Login</h2>
+
+    <form method="post" action="{% url 'people:login' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form.username }}
+            <span class="fa fa-user" aria-hidden="true"></span>
+        </div>
+
+        <div class="form-group">
+            {{ form.password }}
+            <span class="fa fa-unlock-alt" aria-hidden="true"></span>
+        </div>
+        <button class="btn btn-primary btn-sm float-right" type="submit" value="login">Login</button>
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+
+</div>
+
+<hr class="login-form">
+
+{% endblock body %}

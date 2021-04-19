@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from voting.models import Vote
+
+@admin.register(Vote)
+class VoteAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'points']

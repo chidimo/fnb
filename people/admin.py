@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
 
-from people.models import AppUser, Person
+from people.models import AppUser, Person, PersonVote
 from people.forms import PersonChangeForm, PersonCreationForm
 
 # admin.site.unregister(Group)
@@ -12,6 +12,7 @@ class AppUserAdmin(admin.ModelAdmin):
     add_form = PersonCreationForm
 
     list_filter = ('is_admin', )
+    list_editable = ['is_admin']
     list_display = ['email', 'is_admin', 'person', 'is_active', 'last_login']
     fieldsets = (
         ('Login', {'fields': ('email', 'password',)}),
@@ -32,4 +33,8 @@ class AppUserAdmin(admin.ModelAdmin):
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_editable = ['phone', 'is_contestant', 'profile_pix']
-    list_display = ['name', 'phone', 'is_contestant', 'sex', 'profile_pix']
+    list_display = ['name', 'phone', 'vote_count', 'cast_votes', 'is_contestant', 'sex', 'profile_pix']
+
+@admin.register(PersonVote)
+class PersonVoteAdmin(admin.ModelAdmin):
+    list_display = ['voter', 'voted_for', 'vote']

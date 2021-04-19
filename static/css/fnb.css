@@ -1,0 +1,242 @@
+/* GENERIC ELEMENTS */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 5.5rem;
+  background-color: #111;
+}
+
+/* fix nav scrolling on small screens */
+@media (min-width: 300px) {
+  .navbar-collapse.navcontent.collapse.show {
+      max-height: 540px !important;
+      overflow-y: scroll !important;
+      overflow-x: hidden !important;
+  }
+}
+
+/*NAVIGATION*/
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(250, 57, 57, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+nav,
+ol.breadcrumb {
+  background-color: #041527;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+td {
+  white-space: nowrap;
+}
+
+/*CONTENT*/
+
+.logo-container {
+  height: 100%;
+  float: left;
+  text-align: justify;
+}
+
+.logo {
+  float: left;
+  width: 15%;
+}
+
+.profile-image>img {
+  height: 25px;
+  width: 25px;
+}
+
+.profile-image {
+  float: left !important;
+}
+
+.instant-search {
+  padding: 20px 0;
+}
+
+.upload-form {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 500px;
+  padding: 1rem 1rem 1rem;
+  border-radius: 5px;
+  padding-bottom: 50px;
+  margin-top: .5rem;
+  margin-bottom: 35rem;
+  /* border: .5px solid #375a7f; */
+}
+
+.login-form {
+  max-width: 350px;
+  margin: auto;
+  border-radius: 5px;
+  padding-bottom: 50px;
+}
+
+/* Add icons to registration form fields */
+.form-group {
+  position: relative;
+}
+
+.login-logo {
+  margin: auto;
+}
+
+input#id_username {
+  text-indent: 30px;
+  position: relative;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+input#id_password {
+  text-indent: 30px;
+  position: relative;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.fa-user {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 25px;
+  color: rebeccapurple;
+  border-right: 1px solid #ccc;
+  padding-right: 5px;
+}
+
+.fa-unlock-alt {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 25px;
+  color: rebeccapurple;
+  border-right: 1px solid #ccc;
+  padding-right: 5px;
+}
+
+.btn-sm-span {
+  vertical-align: middle;
+  font-size: 22px;
+}
+
+#About {
+  word-break: break-all;
+  max-width: 350px;
+}
+
+.errorlist {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  color: yellow;
+  font-size: 18px;
+}
+
+/*TABLES*/
+
+/*stripe table
+tbody tr:nth-child(even) {
+background-color: #fafafa;
+}
+tbody tr:nth-child(odd) {
+background-color: #c6e2fc;
+}
+end stripe table */
+
+label {
+  font-weight: bold;
+}
+
+.list-inline {
+  padding-top: 1em;
+}
+
+select.form-control:not([size]):not([multiple]),
+.btn-filter>input {
+  height: calc(2rem + 2px);
+  padding: 2px;
+}
+
+footer {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+}
+
+.copyright {
+  margin: 20px 0;
+}
+
+.pagination {
+  padding: .5rem;
+  background: #375a7f;
+}
+
+.page {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.permission-list-item {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.user-detail-card {
+  display: flex;
+  box-shadow: 3px 3px 10px;
+  margin-bottom: 1.5rem;
+  padding: 10px;
+  background: #333;
+}
+
+.user-detail-card p {
+  margin: 0
+}
+
+.user-card-body {
+  padding: 0 1rem;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+}
+
+/* override bootstrap classes */
+
+.alert {
+  padding: 0.5rem;
+}
+
+.table th {
+  padding: 0.35rem;
+  background-color: #041527;
+}
+
+.table td {
+  padding: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.dropdown-divider {
+  margin: 0.15rem 0;
+}
+
+.fixed-top a {
+  font-size: 0.85rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  padding: 0 5px;
+}
