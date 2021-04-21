@@ -8,6 +8,7 @@ django = "*"
 whitenoise = "*"
 psycopg2 = "*"
 python-decouple = "*"
+faker = "*"
 
 [dev-packages]
 black = "*"

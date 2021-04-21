@@ -11,7 +11,6 @@ from django.contrib.auth.models import (
 )
 from django.utils.translation import gettext_lazy as _
 
-from voting.models import Point
 from utils.models import TimeStampedModel
 
 
@@ -104,21 +103,8 @@ class Person(TimeStampedModel):
 
     @property
     def received_votes(self):
-        return self.voted_for.aggregate(total=Sum("vote__points"))["total"]
+        return self.contestant.aggregate(total=Sum("point__points"))["total"]
 
     @property
     def votes_cast(self):
-        return self.voter.all()
-
-
-class PersonVote(TimeStampedModel):
-    vote = models.ForeignKey(Point, on_delete=models.CASCADE)
-    voted_for = models.ForeignKey(
-        Person, on_delete=models.CASCADE, related_name="voted_for"
-    )
-    voter = models.ForeignKey(
-        Person, on_delete=models.SET_NULL, null=True, blank=True, related_name="voter"
-    )
-
-    def __str__(self) -> str:
-        return f"{self.voter.user.email} votes for {self.voted_for.user.email}"
+        return [each.contestant.user.email for each in self.voter.all()]

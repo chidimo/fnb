@@ -11,9 +11,9 @@ def leaderboard(request):
     context["persons"] = (
         Person.objects.filter(is_contestant=True)
         .annotate(
-            points=Sum("voted_for__vote__points"),
+            total_points=Sum("contestant__point__points"),
         )
-        .order_by("-points")
+        .order_by("-total_points")
     )
 
     template = "voting/leaderboard.html"

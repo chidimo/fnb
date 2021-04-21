@@ -1,5 +1,6 @@
 import random
 from django.core.management.base import BaseCommand
+from faker import Faker
 
 from people.models import AppUser, Person
 
@@ -9,15 +10,20 @@ emails = [
     "me@you.us",
     "baewa@gajo.ge",
     "ageate@iojoij.gejtoij",
+    "aeer@ojo.go",
+    "toij@oiioo.gg",
 ]
 
-
+fake = Faker()
 class Command(BaseCommand):
     help = "Create all permissions"
 
     def handle(self, *args, **options):
 
-        for idx, email in enumerate(emails):
+        for user in range(80):
+            email=fake.email()
+            name = fake.name()
+
             try:
                 user = AppUser.objects.create_user(email=email, password="password")
                 user.is_active = True
@@ -27,7 +33,6 @@ class Command(BaseCommand):
 
             user.save()
 
-            name = f"person {idx}"
             person, _ = Person.objects.get_or_create(user=user)
             person.name = name
             person.save()
