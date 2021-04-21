@@ -1,3 +1,4 @@
+import random
 from django.core.management.base import BaseCommand
 
 from people.models import AppUser, Person
@@ -27,9 +28,15 @@ class Command(BaseCommand):
             user.save()
 
             name = f"person {idx}"
-
             person, _ = Person.objects.get_or_create(user=user)
             person.name = name
             person.save()
 
             self.stdout.write(self.style.SUCCESS(f"Created {person} successfully"))
+
+        # mark 10 persons as contestants
+        persons = Person.objects.all()
+        for i in range(10):
+            p = random.choice(persons)
+            p.is_contestant = True
+            p.save(update_fields=['is_contestant'])

@@ -37,4 +37,4 @@ class PersonAdmin(admin.ModelAdmin):
 
 @admin.register(PersonVote)
 class PersonVoteAdmin(admin.ModelAdmin):
-    list_display = ['voter', 'voted_for', 'vote']
+    list_display = ['__str__', 'voter', 'voted_for', 'vote']

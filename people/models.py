@@ -119,3 +119,6 @@ class PersonVote(TimeStampedModel):
     voter = models.ForeignKey(
         Person, on_delete=models.SET_NULL, null=True, blank=True, related_name="voter"
     )
+
+    def __str__(self) -> str:
+        return f"{self.voter.user.email} votes for {self.voted_for.user.email}"
