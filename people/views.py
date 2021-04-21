@@ -39,7 +39,7 @@ def leaderboard(request):
 def all_persons(request):
     context = {}
 
-    context["persons"] = Person.objects.all()
+    context["persons"] = Person.objects.all().exclude(user__is_admin=True)
 
     template = "people/persons.html"
     return render(request, template, context)
