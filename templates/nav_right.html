@@ -7,6 +7,10 @@
     <a class="nav-link" href="{% url 'people:profile' user.person.pk %}">
       <div class="profile-name">{{ user.person.name }}</div>
     </a>
+
+    <a class="nav-link" href="{% url 'people:password_change' %}">
+      <div class="profile-name">Change password</div>
+    </a>
   </li>
 
   {% else %}

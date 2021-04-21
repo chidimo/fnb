@@ -11,4 +11,6 @@ urlpatterns = [
     path('leaderboard', views.leaderboard, name='leaderboard'),
     path('users', views.all_persons, name='all_persons'),
     path('profile/<int:pk>/', views.person_profile, name='profile'),
+    path('password_change/', auth_views.PasswordChangeView.as_view(
+        success_url=reverse_lazy('people:login')), name='password_change'),
 ]
