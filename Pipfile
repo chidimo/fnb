@@ -9,6 +9,7 @@ whitenoise = "*"
 psycopg2 = "*"
 python-decouple = "*"
 faker = "*"
+django-extensions = "*"
 
 [dev-packages]
 black = "*"

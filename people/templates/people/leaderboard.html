@@ -6,7 +6,7 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'voting:leaderboard' %}">Leaderboard</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'people:leaderboard' %}">Leaderboard</a></li>
   </ol>
 </nav>
 
@@ -17,7 +17,8 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>points</th>
+          <th>Email</th>
+          <th>Points</th>
         </tr>
       </thead>
 
@@ -25,7 +26,14 @@
         {% for person in persons %}
         <tr class="table-light">
           <td>{{ person.name }}</td>
-          <td>{{ person.received_votes }}</td>
+          <td>{{ person.user.email }}</td>
+          <td>
+            {% if person.received_votes %}
+            {{ person.received_votes }}
+            {% else %}
+            0
+            {% endif %}
+          </td>
         </tr>
         {% endfor %}
       </tbody>

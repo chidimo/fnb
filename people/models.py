@@ -87,7 +87,6 @@ class Person(TimeStampedModel):
         verbose_name_plural = "persons"
         ordering = [
             "name",
-            "-created",
         ]
 
     def __str__(self):

@@ -5,23 +5,38 @@
 {% block content_content %}
 
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ person }} detail</li>
-    </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ person }} detail</li>
+  </ol>
 </nav>
 
-<div class="user-detail-card" style="width: 50%;">
+<div>
 
-    <div class="user-card-body">
-        <h4>{{ person.name }}</h4>
+  <div class="">
+    <h4>{{ person.name }}</h4>
 
-        <p>Email: <a href="mailto:{{ person.username }}">{{ person.username }}</a></p>
-        <p>Phone: <a href="#">{{ person.phone }}</a></p>
+    <p>Email: <a href="mailto:{{ person.username }}">{{ person.username }}</a></p>
+    <p>Phone: <a href="#">{{ person.phone }}</a></p>
 
-        <p>Last seen: {{ person.user.last_login }}</p>
-        <p>Joined: {{ person.created }}</p>
+    <p>Last seen: {{ person.user.last_login }}</p>
+    <p>Joined: {{ person.created }}</p>
+
+    <h3>My votes</h3>
+
+    {% for pers in person.voter.all %}
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{ forloop.counter }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ pers.contestant.name }}</h4>
+        <p class="card-text">{{ pers.contestant.user.email }}</p>
+      </div>
     </div>
+
+    {% endfor %}
+
+  </div>
 </div>
 
 

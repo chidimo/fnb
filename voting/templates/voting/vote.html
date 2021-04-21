@@ -1,0 +1,35 @@
+{% extends "fnb_base.html" %}
+{% block title %}{{ person }} Cast your vote{% endblock title %}
+{% load static %}
+
+{% block content_content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'people:leaderboard' %}">Cast your vote</a></li>
+  </ol>
+</nav>
+
+
+<div class="container">
+
+  <div class="row">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="container" style="padding:0">
+        {% for field in form %}
+        <label class="">{{ field.label }}</label>
+        {{ field }}
+        <span class="text-danger">{{field.errors}}</span>
+        {% endfor %}
+
+      </div>
+
+      <button class="btn btn-primary btn-md" type="submit" value="Vote">Vote</button>
+    </form>
+  </div>
+</div>
+
+
+{% endblock content_content %}

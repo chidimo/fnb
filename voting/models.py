@@ -20,7 +20,7 @@ class Vote(TimeStampedModel):
         Person, on_delete=models.CASCADE, related_name="contestant"
     )
     voter = models.ForeignKey(
-        Person, on_delete=models.SET_NULL, null=True, blank=True, related_name="voter"
+        Person, on_delete=models.CASCADE, related_name="voter"
     )
 
     def __str__(self) -> str:

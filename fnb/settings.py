@@ -24,7 +24,7 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 DJANGO_SETTINGS_MODULE = config("DJANGO_SETTINGS_MODULE")
 
 LOGOUT_REDIRECT_URL = reverse_lazy('people:login')
-LOGIN_REDIRECT_URL = reverse_lazy('voting:leaderboard')
+LOGIN_REDIRECT_URL = reverse_lazy('people:leaderboard')
 
 # Application definition
 

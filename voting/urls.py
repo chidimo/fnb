@@ -5,5 +5,5 @@ from . import views
 app_name = 'voting'
 
 urlpatterns = [
-    path('leaderboard', views.leaderboard, name='leaderboard'),
+    path('vote', views.vote_screen, name='vote_screen'),
 ]

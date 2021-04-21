@@ -1,0 +1,15 @@
+{% load static %}
+
+<ul class="nav navbar-nav ml-auto">
+
+  {% if request.user.is_authenticated %}
+  <li class="nav-item logged-in-username d-none d-md-block">
+    <a class="nav-link" href="{% url 'people:profile' user.person.pk %}">
+      <div class="profile-name">{{ user.person.name }}</div>
+    </a>
+  </li>
+
+  {% else %}
+  <a class="nav-link" href="{% url 'people:login' %}">Login <i class="fas fa-sign-in-alt"></i></a>
+  {% endif %}
+</ul>

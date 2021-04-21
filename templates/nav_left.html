@@ -1,0 +1,17 @@
+{% load static %}
+
+
+<ul class="navbar-nav mr-auto">
+
+  <li class="nav-item dropdown">
+    {% with pk=request.user.person.pk %}
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+    <div class="dropdown-menu">
+      <a class="nav-link" href="{% url 'voting:vote_screen' %}">Cast vote</a>
+      <div class="dropdown-divider"></div>
+      <a class="nav-link" href="{% url 'people:leaderboard' %}">Leaderboard</a>
+      <a class="nav-link" href="{% url 'people:all_persons' %}">All users</a>
+    </div>
+    {% endwith %}
+  </li>
+</ul>
