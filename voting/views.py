@@ -36,7 +36,7 @@ def vote_screen(request):
             for v in votes_cast:
                 Vote.objects.create(**v)
 
-            return redirect("people:leaderboard")
+            return redirect("accounts:leaderboard")
         return render(request, template, {"form": form})
 
     return render(request, template, {"form": VoteForm(), "has_voted": has_voted})

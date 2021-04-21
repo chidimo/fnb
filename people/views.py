@@ -52,7 +52,7 @@ def change_password(request):
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, "Your password was successfully updated!")
-            return redirect("people:profile", kwargs={"pk": user.pk})
+            return redirect("accounts:profile", kwargs={"pk": user.pk})
         else:
             messages.error(request, "Please correct the error below.")
     else:

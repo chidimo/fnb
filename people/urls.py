@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views
 
 from . import views
 
-app_name = 'people'
+app_name = 'accounts'
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
@@ -12,5 +12,5 @@ urlpatterns = [
     path('users', views.all_persons, name='all_persons'),
     path('profile/<int:pk>/', views.person_profile, name='profile'),
     path('password_change/', auth_views.PasswordChangeView.as_view(
-        success_url=reverse_lazy('people:login')), name='password_change'),
+        success_url=reverse_lazy('accounts:login')), name='password_change'),
 ]
