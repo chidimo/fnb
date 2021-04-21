@@ -20,19 +20,21 @@ class Command(BaseCommand):
 
             for contestant in contestants:
 
-                for point in points:
+                if Vote.objects.filter(voter=voter).count() < 3:
 
-                    contestant = random.choice(contestants)
+                    for point in points:
 
-                    vc = {"voter": voter, "contestant": contestant, "point": point}
+                        contestant = random.choice(contestants)
 
-                    if Vote.objects.filter(**vc).exists():
-                        msg = f"{voter} already voted for {contestant}"
-                        self.stdout.write(self.style.ERROR(msg))
-                    else:
-                        vote = Vote.objects.create(**vc)
-                        count += 1
-                        self.stdout.write(self.style.SUCCESS(f"{vote} cast successfully."))
+                        vc = {"voter": voter, "contestant": contestant, "point": point}
+
+                        if Vote.objects.filter(**vc).exists():
+                            msg = f"{voter} already voted for {contestant}"
+                            self.stdout.write(self.style.ERROR(msg))
+                        else:
+                            vote = Vote.objects.create(**vc)
+                            count += 1
+                            msg = f"{vote} cast successfully."
+                            self.stdout.write(self.style.SUCCESS(msg))
 
         self.stdout.write(self.style.SUCCESS(f"{count} votes cast."))
-

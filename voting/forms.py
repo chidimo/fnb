@@ -28,10 +28,6 @@ class VoteForm(forms.Form):
         second_place = self.cleaned_data['second_place']
         third_place = self.cleaned_data['third_place']
 
-        print('1', first_place)
-        print('2', second_place)
-        print('3', third_place)
-
         if first_place is None:
             self.add_error('first_place', 'Please select an option.')
             return

@@ -11,7 +11,7 @@ def vote_screen(request):
     user = request.user
     person = user.person
 
-    has_voted = False # Vote.objects.filter(voter__user=user).exists()
+    has_voted = Vote.objects.filter(voter__user=user).exists()
 
     if request.method == "POST":
         form = VoteForm(request.POST)
