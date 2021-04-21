@@ -11,7 +11,7 @@ from django.contrib.auth.models import (
 )
 from django.utils.translation import gettext_lazy as _
 
-from voting.models import Vote
+from voting.models import Point
 from utils.models import TimeStampedModel
 
 
@@ -112,7 +112,7 @@ class Person(TimeStampedModel):
 
 
 class PersonVote(TimeStampedModel):
-    vote = models.ForeignKey(Vote, on_delete=models.CASCADE)
+    vote = models.ForeignKey(Point, on_delete=models.CASCADE)
     voted_for = models.ForeignKey(
         Person, on_delete=models.CASCADE, related_name="voted_for"
     )
