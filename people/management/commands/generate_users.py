@@ -16,7 +16,7 @@ emails = [
 
 fake = Faker()
 class Command(BaseCommand):
-    help = "Create all permissions"
+    help = "Generate random users"
 
     def handle(self, *args, **options):
 
