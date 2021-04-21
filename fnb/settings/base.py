@@ -16,7 +16,7 @@ from decouple import config, Csv
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DEBUG = config("DEBUG", cast=bool)
 SECRET_KEY = config("SECRET_KEY")
@@ -39,11 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -79,18 +76,6 @@ WSGI_APPLICATION = "fnb.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": config("POSTGRES_USER"),
-        "USER": config("POSTGRES_USER"),
-        "HOST": config("POSTGRES_HOST"),
-        "PASSWORD": config("POSTGRES_PASSWORD"),
-        "PORT": config("POSTGRES_PORT"),
-    }
-}
 
 
 # Password validation
