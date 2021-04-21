@@ -103,11 +103,11 @@ class Person(TimeStampedModel):
         return self.user.email
 
     @property
-    def cast_votes(self):
+    def received_votes(self):
         return self.voted_for.aggregate(total=Sum("vote__points"))["total"]
 
     @property
-    def vote_count(self):
+    def votes_cast(self):
         return self.voter.all()
 
 

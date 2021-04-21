@@ -33,7 +33,7 @@ class AppUserAdmin(admin.ModelAdmin):
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_editable = ['phone', 'is_contestant', 'profile_pix']
-    list_display = ['name', 'phone', 'vote_count', 'cast_votes', 'is_contestant', 'sex', 'profile_pix']
+    list_display = ['name', 'phone', 'votes_cast', 'received_votes', 'is_contestant', 'sex', 'profile_pix']
 
 @admin.register(PersonVote)
 class PersonVoteAdmin(admin.ModelAdmin):
