@@ -7,7 +7,9 @@
     <a class="nav-link" href="{% url 'people:profile' user.person.pk %}">
       <div class="profile-name">{{ user.person.name }}</div>
     </a>
+  </li>
 
+  <li class="nav-item logged-in-username d-none d-md-block">
     <a class="nav-link" href="{% url 'people:password_change' %}">
       <div class="profile-name">Change password</div>
     </a>
