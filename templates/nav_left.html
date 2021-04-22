@@ -10,7 +10,7 @@
   <li><a class="nav-link" href="{% url 'voting:vote_screen' %}">Cast vote</a></li>
   <li><a class="nav-link" href="{% url 'accounts:all_persons' %}">Members</a></li>
   <li><a class="nav-link" href="{% url 'accounts:profile' user.person.pk %}">{{ user.person.name }}</a></li>
-  <li><a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
   <li><a class="nav-link" href="{% url 'accounts:password_change' %}">Change password</a></li>
+  <li><a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
 </ul>
 {% endif %}
