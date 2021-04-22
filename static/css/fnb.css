@@ -29,6 +29,14 @@ ol.breadcrumb {
   background-color: #041527;
 }
 
+a.branding h2 {
+  margin: 0;
+}
+
+a.branding:hover {
+  text-decoration: none;
+}
+
 h3 {
   font-size: 1.5rem;
 }

@@ -8,8 +8,8 @@
   <title>{% block title %}Wahala like bicycle{% endblock title %} &#124; FnB</title>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"
@@ -43,9 +43,9 @@
 
     <div class="container">
 
-      <a href="{% url 'accounts:leaderboard' %}">
+      <a class="branding" href="{% url 'accounts:leaderboard' %}">
         <div style="display: grid;margin-right: 1rem;">
-          <h2 style="margin: 0;">FnB</h3>
+          <h2>FnB</h2>
         </div>
       </a>
 
@@ -64,7 +64,7 @@
   {% endblock navigation %}
 
   {% block main %}
-  <div class="container">
+  <div class="container base_container">
     {% include 'messages.html' %}
 
     {% block content_content %}
