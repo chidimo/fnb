@@ -90,6 +90,10 @@ class Person(TimeStampedModel):
         ]
 
     def __str__(self):
+        return self.name
+
+    @property
+    def str__admin(self):
         return f"Person: {self.name} ({self.user.email})"
 
     def save(self, *args, **kwargs):

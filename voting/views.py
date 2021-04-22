@@ -16,11 +16,24 @@ def vote_screen(request):
     voting_closed = settings.VOTING_CLOSED
     has_voted = Vote.objects.filter(voter__user=user).exists()
 
+    context = {
+        "form": VoteForm(),
+        "has_voted": has_voted,
+        "voting_closed": voting_closed,
+    }
+
+    if voting_closed:
+        messages.info(request, "Voting is currently closed.")
+        return render(request, template, context)
+
+    if has_voted:
+        messages.error(request, "You have already cast your votes.")
+        return render(request, template, context)
+
     if request.method == "POST":
         form = VoteForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            print("form data", data)
 
             first = Point.objects.get(points=15)
             second = Point.objects.get(points=10)
@@ -43,8 +56,4 @@ def vote_screen(request):
             return redirect("accounts:leaderboard")
         return render(request, template, {"form": form})
 
-    return render(
-        request,
-        template,
-        {"form": VoteForm(), "has_voted": has_voted, "voting_closed": voting_closed},
-    )
+    return render(request, template, context)
