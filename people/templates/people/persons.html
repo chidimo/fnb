@@ -16,7 +16,6 @@
     <tr>
       <th>S/N</th>
       <th>Name</th>
-      <th>Email</th>
       <th>Points</th>
     </tr>
   </thead>
@@ -26,7 +25,6 @@
     <tr class="table-light">
       <td>{{ forloop.counter }}</td>
       <td>{{ person.name }}</td>
-      <td>{{ person.user.email }}</td>
       <td>
         {% if person.received_votes %}
         {{ person.received_votes }}
