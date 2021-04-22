@@ -4,16 +4,13 @@
 <ul class="navbar-nav mr-auto">
 
   <li class="nav-item dropdown">
-    {% with pk=request.user.person.pk %}
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-      aria-expanded="false">Menu</a>
-    <div class="dropdown-menu">
-      <a class="nav-link" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
-      <div class="dropdown-divider"></div>
-      <a class="nav-link" href="{% url 'voting:vote_screen' %}">Cast vote</a>
-      <a class="nav-link" href="{% url 'accounts:all_persons' %}">Members</a>
-    </div>
-    {% endwith %}
+    <a class="nav-link" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
   </li>
+
+  <li><a class="nav-link" href="{% url 'voting:vote_screen' %}">Cast vote</a></li>
+  <li><a class="nav-link" href="{% url 'accounts:all_persons' %}">Members</a></li>
+  <li><a class="nav-link" href="{% url 'accounts:profile' user.person.pk %}">{{ user.person.name }}</a></li>
+  <li><a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
+  <li><a class="nav-link" href="{% url 'accounts:password_change' %}">Change password</a></li>
 </ul>
 {% endif %}
