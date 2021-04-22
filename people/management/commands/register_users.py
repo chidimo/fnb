@@ -81,6 +81,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        for p in points:
+            Point.objects.get_or_create(points=p)
+
         for p in people:
             email = p[0]
             name = p[1]

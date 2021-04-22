@@ -10,7 +10,7 @@ body {
 }
 
 /* fix nav scrolling on small screens */
-@media (min-width: 300px) {
+@media (min-width: 768px) {
   .navbar-collapse.navcontent.collapse.show {
       max-height: 540px !important;
       overflow-y: scroll !important;
@@ -33,48 +33,6 @@ h3 {
   font-size: 1.5rem;
 }
 
-td {
-  white-space: nowrap;
-}
-
-/*CONTENT*/
-
-.logo-container {
-  height: 100%;
-  float: left;
-  text-align: justify;
-}
-
-.logo {
-  float: left;
-  width: 15%;
-}
-
-.profile-image>img {
-  height: 25px;
-  width: 25px;
-}
-
-.profile-image {
-  float: left !important;
-}
-
-.instant-search {
-  padding: 20px 0;
-}
-
-.upload-form {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 500px;
-  padding: 1rem 1rem 1rem;
-  border-radius: 5px;
-  padding-bottom: 50px;
-  margin-top: .5rem;
-  margin-bottom: 35rem;
-  /* border: .5px solid #375a7f; */
-}
-
 .login-form {
   max-width: 350px;
   margin: auto;
@@ -82,82 +40,8 @@ td {
   padding-bottom: 50px;
 }
 
-/* Add icons to registration form fields */
-.form-group {
-  position: relative;
-}
-
-.login-logo {
-  margin: auto;
-}
-
-input#id_username {
-  text-indent: 30px;
-  position: relative;
-  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
-}
-
-input#id_password {
-  text-indent: 30px;
-  position: relative;
-  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
-}
-
-.fa-user {
-  position: absolute;
-  top: 5px;
-  left: 10px;
-  font-size: 25px;
-  color: rebeccapurple;
-  border-right: 1px solid #ccc;
-  padding-right: 5px;
-}
-
-.fa-unlock-alt {
-  position: absolute;
-  top: 5px;
-  left: 10px;
-  font-size: 25px;
-  color: rebeccapurple;
-  border-right: 1px solid #ccc;
-  padding-right: 5px;
-}
-
-.btn-sm-span {
-  vertical-align: middle;
-  font-size: 22px;
-}
-
-#About {
-  word-break: break-all;
-  max-width: 350px;
-}
-
-.errorlist {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  color: yellow;
-  font-size: 18px;
-}
-
-/*TABLES*/
-
-/*stripe table
-tbody tr:nth-child(even) {
-background-color: #fafafa;
-}
-tbody tr:nth-child(odd) {
-background-color: #c6e2fc;
-}
-end stripe table */
-
 label {
   font-weight: bold;
-}
-
-.list-inline {
-  padding-top: 1em;
 }
 
 select.form-control:not([size]):not([multiple]),
@@ -166,51 +50,13 @@ select.form-control:not([size]):not([multiple]),
   padding: 2px;
 }
 
+.login_input_wrapper {
+  margin: 15px 0;
+}
+
 footer {
   margin-top: 10rem;
   margin-bottom: 3rem;
-}
-
-.copyright {
-  margin: 20px 0;
-}
-
-.pagination {
-  padding: .5rem;
-  background: #375a7f;
-}
-
-.page {
-  padding-left: .5rem;
-  padding-right: .5rem;
-}
-
-.permission-list-item {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
-.user-detail-card {
-  display: flex;
-  box-shadow: 3px 3px 10px;
-  margin-bottom: 1.5rem;
-  padding: 10px;
-  background: #333;
-}
-
-.user-detail-card p {
-  margin: 0
-}
-
-.user-card-body {
-  padding: 0 1rem;
-}
-
-.user-avatar {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
 }
 
 /* override bootstrap classes */

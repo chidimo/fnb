@@ -7,21 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>{% block title %}Wahala like bicycle{% endblock title %} &#124; FnB</title>
 
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"
     async></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
     integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"
     async></script>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-  <script src="https://kit.fontawesome.com/fee85655f1.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
@@ -33,7 +28,6 @@
   <link rel="stylesheet" href="{% static 'css/fnb.css' %}">
 
   <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/asyncOperations.js' %}"></script>
   {{ form.media }}
 
   {% block extra_styles %}{% endblock extra_styles %}
@@ -51,7 +45,7 @@
 
       <a href="{% url 'accounts:leaderboard' %}">
         <div style="display: grid;margin-right: 1rem;">
-          <h3>FnB</h3>
+          <h2 style="margin: 0;">FnB</h3>
         </div>
       </a>
 
@@ -61,15 +55,19 @@
       </button>
 
       <div style="padding-top: 10px;" class="collapse navbar-collapse navcontent">
+        {% block nav_left_right %}
         {% include "nav_left.html" %}
         {% include "nav_right.html" %}
+        {% endblock nav_left_right %}
       </div>
+
     </div>
   </nav>
   {% endblock navigation %}
 
   {% block main %}
   <div class="container">
+    {% include 'messages.html' %}
 
     {% block content_content %}
     content block
@@ -82,12 +80,6 @@
   {% endblock main %}
 
   {% endblock body %}
-  <script>FontAwesomeConfig = { searchPseudoElements: true };</script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-
-  {% block page_js %}{% endblock page_js %}
 
 </body>
 

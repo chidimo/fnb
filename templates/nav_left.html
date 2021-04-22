@@ -1,11 +1,12 @@
 {% load static %}
 
-
+{% if request.user.is_authenticated %}
 <ul class="navbar-nav mr-auto">
 
   <li class="nav-item dropdown">
     {% with pk=request.user.person.pk %}
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+      aria-expanded="false">Menu</a>
     <div class="dropdown-menu">
       <a class="nav-link" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
       <div class="dropdown-divider"></div>
@@ -15,3 +16,4 @@
     {% endwith %}
   </li>
 </ul>
+{% endif %}

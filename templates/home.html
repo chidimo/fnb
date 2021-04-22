@@ -1,0 +1,22 @@
+{% extends "fnb_base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content_content %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+
+<div class="jumbotron">
+  <h1 class="display-3">Hello, FnB!</h1>
+  <hr class="my-4">
+  <p>Your favourite online community.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'accounts:login' %}" role="button">Login</a>
+  </p>
+</div>
+
+{% endblock content_content %}

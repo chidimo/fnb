@@ -13,26 +13,37 @@
 
 <div class="container">
 
-  <div class="row">
-    {% if has_voted %}
-    <h4>You have already cast your votes</h4>
+  <div>
+    {% if voting_closed %}
+
+    <div>
+      <h2>Voting is currently closed.</h2>
+    </div>
+
     {% else %}
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
 
-      <div class="container" style="padding:0">
-        {% for field in form %}
-        <label class="">{{ field.label }}</label>
-        {{ field }}
-        <span class="text-danger">{{field.errors}}</span>
-        {% endfor %}
-      </div>
+    <div>
+      {% if has_voted %}
+      <h2>You have already cast your votes</h2>
+      {% else %}
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
 
-      <button class="btn btn-primary btn-md" type="submit" value="Vote">Vote</button>
-    </form>
+        <div class="container" style="padding:0">
+          {% for field in form %}
+          <label class="">{{ field.label }}</label>
+          {{ field }}
+          <span class="text-danger">{{field.errors}}</span>
+          {% endfor %}
+        </div>
+
+        <button class="btn btn-primary btn-md" type="submit" value="Vote">Vote</button>
+      </form>
+      {% endif %}
+    </div>
+
     {% endif %}
   </div>
 </div>
-
 
 {% endblock content_content %}

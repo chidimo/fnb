@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -11,6 +13,7 @@ def vote_screen(request):
     user = request.user
     person = user.person
 
+    voting_closed = settings.VOTING_CLOSED
     has_voted = Vote.objects.filter(voter__user=user).exists()
 
     if request.method == "POST":
@@ -36,7 +39,12 @@ def vote_screen(request):
             for v in votes_cast:
                 Vote.objects.create(**v)
 
+            messages.success(request, "Vote registered successfully.")
             return redirect("accounts:leaderboard")
         return render(request, template, {"form": form})
 
-    return render(request, template, {"form": VoteForm(), "has_voted": has_voted})
+    return render(
+        request,
+        template,
+        {"form": VoteForm(), "has_voted": has_voted, "voting_closed": voting_closed},
+    )
