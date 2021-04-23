@@ -93,6 +93,10 @@ class Person(TimeStampedModel):
         return self.name
 
     @property
+    def has_voted(self):
+        return len(self.votes_cast) > 0
+
+    @property
     def str__admin(self):
         return f"Person: {self.name} ({self.user.email})"
 
